@@ -1,45 +1,38 @@
-const projectName = "Сайт магазина";
-const price = 2000;
-const author = "Василий Пупкин";
+// Condition statements 
 
-const template = author + " заказал " + projectName + " по цене " + price + "грн";
-console.log(template);
+// const money = 100;;
+// if (money > 50) {
+//     console.log('Может купить наш продукт');
+// } else if (money > 55) {
+//     console.log('Куплен мини-продукт ')
 
+// }
+// else {
+//     console.log('Не хватает баланса')
+// }
 
-const template2 = `${author} заказал ${projectName} по цене ${price}грн `
-console.log(template2);
+/* Вася положил 12000$ на вклад 7$ годовых с капитализацией 1 раз в месяц.
+Вывести в консоль, сможет ли он купить дом за 13500$ через 2 года после снятия вклада. И остаток после покупки. 
 
-const template3 = 'Проект \n' + 'цена:' + price + '$';
-console.log(template3);
+Итог = сумма * ( 1 + ставка в месяц не в %) ^ срок в месяцах */
 
-const template4 = `Проект;
-цена: ${price}$`;
-console.log(template4);
+const depositUSD = 11900;
+const monthlyUSD = 0.07;
+const priceUSD = 13500;
+const depositTerm = 24
 
-
-
-// Преобразование типов
-
-const age = '18';
-console.log(Number(age) + 5);
-console.log(age - 3);
-const userName = 'vasya';
-console.log(Number(userName) * 2);
-console.log(typeof NaN);
-console.log(String(4) + 7);
-console.log(Boolean('') + 10);
-console.log(true + 2);
-
-const a = 2 + '10'; // 210
-console.log(a - 10) // 200
+const summ = depositUSD * (1 + monthlyUSD / 12) ** depositTerm;
+const remains = summ - priceUSD
 
 
-// Boolean
+if (summ > priceUSD) {
+    console.log(`Мы накопили ${summ}$.
+Нам достаточно чтобы купить дом за ${priceUSD}$. 
+Остаток составляет - ${remains}$`)
+} else {
 
-console.log(Boolean(0))
-console.log(Boolean(''))
-console.log(Boolean(undefined))
-console.log(Boolean(null))
-console.log(Boolean(Number('sx')))
-console.log(Boolean(NaN))
+    console.log(`Мы накопили ${summ}$.
+Нам недостаточно чтобы купить дом за ${priceUSD}$.`)
+}
+
 
