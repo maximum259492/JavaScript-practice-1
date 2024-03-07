@@ -1,38 +1,61 @@
-// Condition statements 
+// // Операторы равенства
 
-// const money = 100;;
-// if (money > 50) {
-//     console.log('Может купить наш продукт');
-// } else if (money > 55) {
-//     console.log('Куплен мини-продукт ')
-
-// }
-// else {
-//     console.log('Не хватает баланса')
+// const secretNum = '7'
+// if (Number(secretNum) === 7) {
+//     console.log('Угадал строго')
 // }
 
-/* Вася положил 12000$ на вклад 7$ годовых с капитализацией 1 раз в месяц.
-Вывести в консоль, сможет ли он купить дом за 13500$ через 2 года после снятия вклада. И остаток после покупки. 
+// // Вывод - использовать строгое равно
 
-Итог = сумма * ( 1 + ставка в месяц не в %) ^ срок в месяцах */
-
-const depositUSD = 11900;
-const monthlyUSD = 0.07;
-const priceUSD = 13500;
-const depositTerm = 24
-
-const summ = depositUSD * (1 + monthlyUSD / 12) ** depositTerm;
-const remains = summ - priceUSD
+// if (secretNum == 7) {
+//     console.log('Угадал не строго')
+// }
 
 
-if (summ > priceUSD) {
-    console.log(`Мы накопили ${summ}$.
-Нам достаточно чтобы купить дом за ${priceUSD}$. 
-Остаток составляет - ${remains}$`)
-} else {
+// // const q = Number(prompt(`Введите число`));
+// if (q === 7) {
+//     console.log('Угадал строго')
+// }
 
-    console.log(`Мы накопили ${summ}$.
-Нам недостаточно чтобы купить дом за ${priceUSD}$.`)
+// SWITCH оператор
+
+const role = 'manager'
+switch (role) {
+    case 'manager': // role === 'manager'
+        console.log('Менеджер')
+        break;
+    case 'admin': // role === 'admin'
+        console.log('Админ')
+        break;
+    case 'CEO': // role === 'CEO'
+        console.log('CEO')
+        break;
+    default:
+        console.log(`Мы тебя не знаем`)
 }
 
+switch (role) {
+    case 'manager': // role === 'manager'
+    case 'admin':
+        console.log('Не руководитель')
+        break;
+    case 'CEO':
+        console.log('Руководитель')
+        break;
+    default:
+        console.log(`Мы тебя не знаем`)
+}
 
+let num = 1
+
+switch (true) {
+    case num > 0: // true === num > 0
+        console.log('Положительный');
+        break;
+    case num < 0:
+        console.log('Отрицательный')
+        break
+    default:
+        console.log(`Ноль`)
+
+}
