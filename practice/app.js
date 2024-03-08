@@ -1,61 +1,25 @@
-// // Операторы равенства
+const bmwX3 = 100000;
+const budget = 20000;
+const fordFocus = 10000;
+let message = budget > bmwX3 ? ` Беху` : budget > fordFocus ? `Ford` : `Велосипед`
 
-// const secretNum = '7'
-// if (Number(secretNum) === 7) {
-//     console.log('Угадал строго')
-// }
-
-// // Вывод - использовать строгое равно
-
-// if (secretNum == 7) {
-//     console.log('Угадал не строго')
-// }
+console.log(`Я хочу купить ${message}`)
 
 
-// // const q = Number(prompt(`Введите число`));
-// if (q === 7) {
-//     console.log('Угадал строго')
-// }
+/* Методом prompt получите ответ пользователя на вопрос "Сколько будет 7 + или - 15". Если ответ верен выведите в консоль "Успех", если нет - "Вы робот!", а если он введет "Я не робот", то тоже "Успех" */
 
-// SWITCH оператор
-
-const role = 'manager'
-switch (role) {
-    case 'manager': // role === 'manager'
-        console.log('Менеджер')
-        break;
-    case 'admin': // role === 'admin'
-        console.log('Админ')
-        break;
-    case 'CEO': // role === 'CEO'
-        console.log('CEO')
-        break;
-    default:
-        console.log(`Мы тебя не знаем`)
-}
-
-switch (role) {
-    case 'manager': // role === 'manager'
-    case 'admin':
-        console.log('Не руководитель')
-        break;
-    case 'CEO':
-        console.log('Руководитель')
-        break;
-    default:
-        console.log(`Мы тебя не знаем`)
-}
-
-let num = 1
+let answer = prompt(`Сколько будет 7 + или - 15`)
 
 switch (true) {
-    case num > 0: // true === num > 0
-        console.log('Положительный');
+    case Number(answer) === 22:
+    case Number(answer) === -8:
+    case answer === 'Я не робот':
+        console.log('Успех!', typeof answer)
         break;
-    case num < 0:
-        console.log('Отрицательный')
-        break
     default:
-        console.log(`Ноль`)
-
+        console.log('Вы робот!')
 }
+
+
+
+
