@@ -1,25 +1,62 @@
-const bmwX3 = 100000;
-const budget = 20000;
-const fordFocus = 10000;
-let message = budget > bmwX3 ? ` Беху` : budget > fordFocus ? `Ford` : `Велосипед`
+// const isAdmin = true;
+// const canWrite = true;
 
-console.log(`Я хочу купить ${message}`)
+// console.log(`Системный файл ${isAdmin && canWrite}`)
+// console.log(`Обычный файл ${isAdmin || canWrite}`)
+// console.log(`Инвертируем права админа ${!isAdmin}`)
 
 
-/* Методом prompt получите ответ пользователя на вопрос "Сколько будет 7 + или - 15". Если ответ верен выведите в консоль "Успех", если нет - "Вы робот!", а если он введет "Я не робот", то тоже "Успех" */
+// const isEdited = true;
+// const isSuperAdmin = true;
 
-let answer = prompt(`Сколько будет 7 + или - 15`)
+//     console.log(`Файл с редактированием ${isAdmin && canWrite && !isEdited} `)
 
-switch (true) {
-    case Number(answer) === 22:
-    case Number(answer) === -8:
-    case answer === 'Я не робот':
-        console.log('Успех!', typeof answer)
-        break;
-    default:
-        console.log('Вы робот!')
-}
+// console.log(`Файл с редактированием ${isAdmin && canWrite && (!isEdited || isSuperAdmin)} `)
+
+// let a = 7 
+// if(a === -8 || a === 22){
+
+// }
 
 
 
+// console.log('Vasya' || 'Oleg') // Vasya
+// console.log(false || 'Oleg') // Oleg
+// console.log('Vasya' || false) //Vasya
 
+// console.log('Vasya' && 'Oleg') //Oleg
+
+
+// let a = 'Марина'
+// const userName = a || `Петя`
+// console.log(userName)
+
+
+// const isAdmin = true;
+// const fileName = isAdmin && `file.mp4`
+// console.log(fileName)
+
+// Оператор нулевого слияния 
+
+// let userName = "";
+// console.log(userName || `Default userName`)
+// console.log(userName ?? `Default userName`)
+
+
+/* Пользователь хочет приобрести игру в магазине
+Он может это сделать только если:
+ - Его баланс больше 1000(balance) или число бонусов больше 100(bonusBalance)
+ - Он не забанен(isBanned) 
+ - Игра не куплена(isExist) 
+ - Игра в продаже(isSelling)
+Напишите условие для покупки и выведите в консоль результат */
+
+let balance = prompt('Ваш баланс:');
+let bonusBalance = prompt('Ваш бонус-баланс:');
+let isBanned = false;
+let isBought = false;
+let isSelling = true;
+
+
+let canBuy = (balance >= 1000 || bonusBalance >= 100) && !isBanned && !isBought && isSelling
+console.log(`Могу ли я купить игру: ${canBuy === true ? `да` : `нет`}`)
