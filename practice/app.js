@@ -1,62 +1,62 @@
-// const isAdmin = true;
-// const canWrite = true;
 
-// console.log(`Системный файл ${isAdmin && canWrite}`)
-// console.log(`Обычный файл ${isAdmin || canWrite}`)
-// console.log(`Инвертируем права админа ${!isAdmin}`)
-
-
-// const isEdited = true;
-// const isSuperAdmin = true;
-
-//     console.log(`Файл с редактированием ${isAdmin && canWrite && !isEdited} `)
-
-// console.log(`Файл с редактированием ${isAdmin && canWrite && (!isEdited || isSuperAdmin)} `)
-
-// let a = 7 
-// if(a === -8 || a === 22){
-
+// ФУНКЦИИ ФУНКЦИИ ФУНКЦИИ ФУНКЦИИ ФУНКЦИИ ФУНКЦИИ ФУНКЦИИ 
+// function logName(name, surname) {
+//     console.log(`Мое имя ${name} ${surname}`)
 // }
 
+// logName('Максон', 'Билык')
+
+// function countDepositSum(depositInUSD, month, rate) {
+//     return depositInUSD * (1 + rate / 12) ** month
+// }
+
+// const example1 = countDepositSum(1000, 36, 0.1)
+// console.log(example1)
+
+// const example2 = countDepositSum(1000, 48, 0.1)
+// console.log(example2)
+
+// АНОНИМНЫЕ ФУНКЦИИ АНОНИМНЫЕ ФУНКЦИИ АНОНИМНЫЕ ФУНКЦИИ 
+
+// function powerOfTwo(num) {
+//     return num * num;
+// }
+// console.log(powerOfTwo(11))
 
 
-// console.log('Vasya' || 'Oleg') // Vasya
-// console.log(false || 'Oleg') // Oleg
-// console.log('Vasya' || false) //Vasya
+// const pOft = function (num) { // Анонимная - нет названия, содержиться в переменной 
+//     return num * num;
+// }
 
-// console.log('Vasya' && 'Oleg') //Oleg
+// console.log(pOft(12))
 
+// СТРЕЛОЧНЫЕ ФУНКЦИИ  СТРЕЛОЧНЫЕ ФУНКЦИИ  СТРЕЛОЧНЫЕ ФУНКЦИИ $
 
-// let a = 'Марина'
-// const userName = a || `Петя`
-// console.log(userName)
+// function powerOfTwo(num) {
+//     return num * num
+// }
 
+// console.log(powerOfTwo(5))
 
-// const isAdmin = true;
-// const fileName = isAdmin && `file.mp4`
-// console.log(fileName)
+// const poft = (num) => num * num // Стрелочная функция 
+// const pofg = num => num * num // Можно опустить скобки аргумента 
+// const arrowExample = (num, i) => { // Если 2 аргумента -> ставим Скобки 
+//     console.log(num);
+//     return num * num
+// }
+// console.log(poft(4))
+// console.log(pofg(6))
+// console.log(arrowExample(8))
 
-// Оператор нулевого слияния 
+/* Переписать функцию в стрелочную */
 
-// let userName = "";
-// console.log(userName || `Default userName`)
-// console.log(userName ?? `Default userName`)
+function toPower(num, power) {
+    const res = num ** power
+    return res
+}
 
+console.log(toPower(2, 3))
 
-/* Пользователь хочет приобрести игру в магазине
-Он может это сделать только если:
- - Его баланс больше 1000(balance) или число бонусов больше 100(bonusBalance)
- - Он не забанен(isBanned) 
- - Игра не куплена(isExist) 
- - Игра в продаже(isSelling)
-Напишите условие для покупки и выведите в консоль результат */
+const toPowerArrow = (num,power) => num ** power
 
-let balance = prompt('Ваш баланс:');
-let bonusBalance = prompt('Ваш бонус-баланс:');
-let isBanned = false;
-let isBought = false;
-let isSelling = true;
-
-
-let canBuy = (balance >= 1000 || bonusBalance >= 100) && !isBanned && !isBought && isSelling
-console.log(`Могу ли я купить игру: ${canBuy === true ? `да` : `нет`}`)
+console.log(toPowerArrow(5,3))
