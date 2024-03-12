@@ -1,50 +1,46 @@
-// ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ ДЕСТРУКТУРИЗАЦИЯ 
+// Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR Цикл FOR 
 
-// const userData = ['Anton', 18, 'Moscow']
 
-// function getData() {
-//     return ['Anton', 18, 'Moscow']
+
+// for (let i = 1; i < 10; i++) {
+
+//     console.log(`Наш баланс ${i}$`)
 // }
 
 
-// const userName = getData()[0];
-// const age = userData[1];
-// const city = userData[2];
+// BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE BREAK и CONTINUE 
 
+// const tasks = ['Задача 1', 'Задача 2', 'Задача 3']
 
-// const [userName, _, city] = userData // => Деструктуризация, присваивает каждой переменной, каждый элемент масства выведенный функцией getData соответсвенно  
+// for (let i = 0; i < tasks.length; i++) {
+//     if (tasks[i] === 'Задача 1') {
+//         continue; // Continue прерывает выполнение текущей итерации текущего или отмеченного цикла, и продолжает его выполнение на следующей итерации. => 'Задача 2' skipped
+//     }
+//     console.log(tasks[i])
+// }
 
-// console.log(userName, city)
+// console.log('----')
 
-// REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR REST OPERATOR 
-
-// const data = [1, 2, 3, 4, 5, 6,];
-// const [one, two, ...others,] = data // ...others => REST OPERATOR, кладет в others остальные элементы массива(ИСПОЛЬЗУЕТСЯ В КОНЦЕ)
-// console.log(one, two, others) // one = 1, two = 2, others =[3,4,5,6]
-
+// for (let i = 0; i < tasks.length; i++) {
+//     if (tasks[i] === 'Задача 2') {
+//         break; // Break прерывает выполнение всего цикла 
+//     }
+//     console.log(tasks[i])
+// }
 
 /*
-    Дан произвольный url - 
-    'https://purpleschool.ru/course/javascript'
-    Нужно сделать функцию, которая выводит в консоль:
-    - Протокол (https)
-    - Доменное имя(purpleschool.ru)
-    - Путь внутри сайта (/course/javascript)
+    Задача вывести в консоль строку "Я люблю JS !" из массива,
+    проходя циклом в обратном порядке, не используя метод reverse.
+    const arr = ['!', 'JS', '  люблю', 'Я' ]
  */
+const arr = ['!', 'JS', 'люблю', 'Я'];
+const sentence = []
+for (let i = arr.length - 1; i >= 0; i--) {
 
-const url = 'https://purpleschool.ru/course/javascript'
-const url2 = 'ldoceonline.com/dictionary/vise'
-function outPut(url) {
-    console.log(url.split('/'))
-    const [protocol, _, domen, ...pathInside] = url.split('/')
-    if (protocol === 'https:' || protocol === 'http:') {
-        if (domen.includes('.')) {
-            console.log(`Протокол: ${protocol.split(':')[0]}`)
-            console.log(`Доменное имя: ${domen}`)
-            console.log(`Путь внутри сайта: /${pathInside.join('/')}`)
-        }
-    }
+
+    let word = arr[i]
+    sentence.push(word)
+    
 
 }
-
-outPut(url)
+console.log(sentence.join(' '))
