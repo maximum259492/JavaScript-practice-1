@@ -1,98 +1,99 @@
-// const score = [5, 10, 0, 15];
+// Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE Метод REDUCE
 
-// for (const [i, el] of score.entries()) { //   Возвращает как Индекс элемента, так и сам Элемент
-//     console.log(`Раунд ${i + 1} : ${el}`)
-// }
-
-// Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach Метод ForEach
-
-
-// Метод forEach() выполняет указанную функцию один раз для каждого элемента в массиве. Принимает element, index , array соответственно 
-
-// score.forEach((scoreElement, i, arr) => { 
-// console.log(`Раунд ${i + 1} счет: ${scoreElement} 
-// Все счета: ${arr.join('-')}`)
-// })
-// (5, 0) = {...}
-// (10, 1) = {...}
-
-
-// Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP Метод MAP 
-
-// const transactionUSD = [10, 7, 50, -10, 100];
-// const transactionRUB = []
-// for (const transaction of transactionUSD) {
-//     transactionRUB.push(transaction * 60)
-
-// }
-// console.log(transactionUSD)
-// console.log(transactionRUB)
-
-
-
-// Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива.
-
-// const transactionRUB2 = transactionUSD.map((transaction, i) => {
-//     console.log(i)
-//     return transaction * 60; // В данном случае мы получили новый массив который присвоили к переменной transactionRUB2
-// })
-
-// console.log(transactionRUB2)
-
-
-// Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter Метод filter 
-
-// const operations = [100, -20, 7, -50, 50];
-// const positiveOperations = []
-// const negativeOperations = []
-
+// const operations = [100, -20, 7, -30, 50]
+// let balance = 0
 // for (const operation of operations) {
-//     if (operation > 0) {
-//         positiveOperations.push(operation)
-//     }
-//     else{negativeOperations.push(operation)}
+//     balance += operation
 // }
+// console.log(balance);
 
-// console.log(positiveOperations)
-// console.log(negativeOperations)
 
-// Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
 
-// const positiveOperations = operations.filter(operation => {
-//     return operation > 0; // Оставляет элементы которые удовлетворяют данному условию, возвращает true
+// Метод Reduce() применяет функцию к аккумулятору и каждому элементу массива (слева направо), чтобы свести массив к одному значению.
 
-// })
+// const finalBalance = operations.reduce((acc, operation, i) => {
+//     console.log(`Итерация ${i + 1} acc: ${acc}, operation ${operation}`)
+//     return acc += operation
+// }, 0)
 
-// console.log(positiveOperations)
+// 0 - acc = 0, value = 100
+// 1 - acc = 100, value = -20
 
-// const positiveRUBOperations = operations
-//     .filter(operation => {
-//         return operation > 0
-//     })
-//     .map(operation => operation * 60)
+// console.log(finalBalance);
 
-// console.log(positiveRUBOperations)
+// const minElement = operations.reduce((acc, operation, i) => {
+//     if (operation > 0) {
+//         return acc;
+//     } else {
+//         return operation
+//     }
 
+// }, 0)
+// console.log(minElement)
 
 /*
+    Найти среднее значение последовательности
+    чисел с помощью reduce()
+ */
 
-Имеется массив изменения цен prices, где внутри
-1й элемент массива является ценой в момент Х,
-2й - ценой в момент Y 
-Нужно преобразовать данные в массив, где будут отображены только положительные изменения цен:[100,150]
- 
+// const arr = [2, 4, 4, 10]
+
+// const average = arr.reduce((acc, num, i) => {
+//     acc += num
+//     if (i === arr.length - 1) {
+//         return acc / arr.length
+//     }
+//     else {
+//         return acc
+//     }
+
+// }, 0)
+// console.log(average)
+
+
+
+// Метод Find и FindIndex
+
+// const arr = [2, 4, 4, 10, 20]
+// let elGT5;
+
+// for (const el of arr) {
+//     if (el > 5) {
+//         elGT5 = el
+//         break;
+
+//     }
+// }
+
+// console.log(elGT5)
+
+// elGT5 = arr.find(el => el > 5)
+// elGT5Index = arr.findIndex(el => el < 0)
+// console.log(elGT5)
+// console.log(elGT5Index)
+
+
+/* Написать функцию, которая возвращает true,
+    если элемент есть, и false, если нет
 */
 
-const prices = [[100, 200], [120, 100], [200, 350]]
+const arr = [2, 4, 4, 10, 20]
 
-const positivePricesTransition = prices
-    .map((productPrice) => {
-        return productPrice[1] - productPrice[0]
+// function some(arr, el){
+//     let check = arr.includes(el)
+//     console.log(check)
+// }
+
+// some(arr,4)
+
+
+function some(array, element) {
+    const res = array.find(el => {
+        return el === element
     })
-    .filter(productPrice => {
-        return productPrice > 0
-    })
+    return res === undefined ? false : true
+}
 
+console.log(some(arr, 10))
 
-console.log(positivePricesTransition)
-
+console.log(arr.some(el => el === 10)) // Метод Some() проверяет, если ли в масстве элемент равный задаваемому
