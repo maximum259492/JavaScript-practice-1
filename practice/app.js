@@ -1,147 +1,146 @@
+// Итерирование по Обьектам Итерирование по Обьектам Итерирование по Обьектам Итерирование по Обьектам Итерирование по Обьектам Итерирование по Обьектам
+
+
+// const cities = {
+//     msk: {
+//         lt: 200,
+//         temp: 25
+//     },
+//     spb: {
+//         temp: 20,
+//         lt: 100
+//     }
+// }
+
+
+// for (const a in b)  Позволяе проходиться по ключам Обьекта
+
+
+// let sumTemp = 0;
+// console.log(Object.keys(cities)) // Создает массив из ключей Обьекта
+// let citiesCount = Object.keys(cities).length;
+// for (const key in cities) { // 1-ый вариант ИТЕРАЦИИ
+//     sumTemp += cities[key].temp
+// }
+// console.log(sumTemp / citiesCount)
+
+
+// for (const key of Object.keys(cities)) { // 2-ой вариант ИТЕРАЦИИ
+//     console.log(key)
+//     sumTemp += cities[key].temp
+// }
+
+// console.log(sumTemp / citiesCount)
+
+
+// Деструктуризация и REST в ОБЪЕКТАХ Деструктуризация и REST в ОБЪЕКТАХ Деструктуризация и REST в ОБЪЕКТАХ Деструктуризация и REST в ОБЪЕКТАХ
+
+// const arr = [1, 3, 4];
+// const [z, y, x] = arr
+// console.log(z, y, x)
+
 
 // const user = {
 //     name: 'Vasya',
-//     surname: 'Pupkin',
-//     age: 24,
-//     skills: [
-//         'Программирование',
-//         'Готовка'],
-//     eduBasic: 'Школа 10',
-//     eduPro: 'МФТИ'
+//     age: 40,
+//     city: 'Moscow'
 // }
-// console.log(user.city)
-// console.log(user.skills);
-// const level = 'Pro'
-// console.log(user['edu' + level])
-// // Если мы хотим к нерасчетному свойству используем .
-// // Если свойство расчетное(получаем извне),
+
+// const { age, ...userWithoutAge } = user // Присваивает значение указанного ключа переменной, а ...(REST)? содержит остальные ключи обьекта
+// console.log(userWithoutAge)
+// console.log(age)
+
+// const additionalData = {
+//     skills: ['Разработка', 'Дизайн'],
+//     creditCard: '2224-5454-1112-5552'
+// }
+
+// user.test = 'sddas'
+
+// user.skills = additionalData.skills // Добавляет в User ключ skills из additionalData
+// user.creditCard = additionalData.creditCard // Добавляет в User ключ creditCard из additionalData
 
 
-// // const res = prompt('Введие свойство')
+// SPREAD оператор
 
-// user['city'] = 'Kiev'
-// user.city = 'Kive'
-// console.log(user.city)
+// Добавляет в обьект все ключи как user, так и additionalData
+// user = {
+//     ...user,
+//     ...additionalData
+// }
 
-// user.age = 30;
-// user['age'] = 30
 // console.log(user)
 
-/* отсортировать пользователей по возрасту */
-// const users = [
-//     { name: 'Vasya', age: 30 },
-//     { name: 'Katya', age: 18 },
-//     { name: 'Anya', age: 40 },
-//     { name: 'Petya', age: 25 }
-// ]
 
 
-// const sorted = users.sort(((a, b) => {
-//     return a.age - b.age
-// }))
+// OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING OPTIONAL CHAINING
 
-// console.log(sorted)
+// const cities = {
+//     msk: {
+//         temp: {
+//             celcius: 25
 
-/* Преобразовать пользователей до вида
-   {fullName: 'Вася Пупкин', skillnum: 2}
-*/
-
-// const users = [
-//     {
-//         name: 'Вася',
-//         surname: 'Пупкин',
-//         age: 30,
-//         skills: ['Разработка', 'DevOps']
+//         }
 //     },
-//     {
-//         name: 'Катя',
-//         surname: 'Белова',
-//         age: 18,
-//         skills: ['Дизайн']
+//     spb: {
 
-//     }
-
-// ]
-
-// const newUsers = users.map(user => {
-//     return {
-//         fullName: `${user.name} ${user.surname}`,
-//         skillnum: user.skills.length
-//     }
-// })
-// console.log(newUsers)
-
-// Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов Методы Обьектов 
-
-// const user = {
-//     name: 'Vasya',
-//     surname: 'Pupkin',
-//     age: 24,
-//     getFullName: function () {
-//         console.log(this)
-//         return this.name + ' ' + this.surname
 //     }
 // }
-// console.log(user.getFullName())
+
+// const city = 'spb'
+// if (cities[city] && cities[city].temp) {
+//     console.log(cities[city].temp.celcius)
+// }
+
+// console.log(cities[city]?.temp?.celcius) // (OPTIONAL CHAINING) Проверяет есть ли в обьекте Ключ с определенным названием и возвращает либо ЗНАЧЕНИЕ либо UNDEFINED
 
 /*
-    Реализовать методы увеличения и уменьшения баланса,
-    при котором каждая операция сохраняется в массив 
-    operations в виде {reason: 'Оплата налогов', sum: -100}. Возвращается true, если успешно и false, если не хватает баланса.
-    Так же реализовать метод вывода числа операций по кошельку
-*/
+    Сделать обьект склад с методами добавления на склад, поиска по id товара и расчет веса
+ */
 
-// const wallet = {
-//     balance: 600,
-//     operations: [],
-
-//     increasedBalance: function (reason, summ) {
-//         this.balance += summ
-//         this.operations.push({
-//             reason,
-//             summ
-//         })
-//         console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
-//         return true
-//     },
-//     decreasedBalance: function (reason, summ) {
-//         if (this.balance <= summ) {
-//             console.log(`Недостаточно денег на балансе: ${this.balance}`)
-//             return false
-//         } else {
-//             this.balance -= summ
-//             this.operations.push({
-//                 reason,
-//                 summ: -summ
-//             })
-//             console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
-//             return true
-//         }
-
-//     },
-//     operationCounter: function () {
-//         return `Число операций: ${this.operations.length}`
-//     }
-
-// }
-// wallet.increasedBalance('Заработок', 500)
-
-// wallet.decreasedBalance('Налог', 1000)
-
-
-// console.log(wallet.operationCounter())
-// console.log(wallet.operations)
-
-
-
-const balance = 7;
-
-const wallet = {
-    balance,        // Можем просто писать свойство, если известно что переменная с таким названием существует 
-    operations: [],
+const warehouse = {
+    goods: [],
+    findGoodById: function (id) {
+        return this.goods.find(g => g.id === id)
+    },
+    addGood: function (good) {
+        let existedGood = this.findGoodById(good.id)
+        if (existedGood) {
+            console.log('Этот товар уже есть на складе')
+            return;
+        }
+        this.goods.push(good)
+        return this.goods
+    },
+    getWeightKG: function () {
+        return this.goods.reduce((acc, el) => acc += el?.weight?.kg ? el.weight.kg : 0, 0)
+    }
 }
-console.log(wallet)
+/* Товары */
+const car = {
+    id: 1,
+    weight: {
+        kg: 1000
+    },
+    brand: 'Ford'
+}
+const chair = {
+    id: 2,
+    weight: {
+        kg: 2
+    },
+}
+const paper = {
+    id: 3,
+    color: 'red'
+}
+warehouse.addGood(car)
+warehouse.addGood(chair)
+warehouse.addGood(paper)
+console.log(warehouse.goods)
 
-
-
+let findedItem = warehouse.findGoodById(3)
+console.log(findedItem)
+const w = warehouse.getWeightKG()
+console.log(w)
 
