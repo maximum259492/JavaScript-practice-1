@@ -91,48 +91,56 @@
     Так же реализовать метод вывода числа операций по кошельку
 */
 
+// const wallet = {
+//     balance: 600,
+//     operations: [],
+
+//     increasedBalance: function (reason, summ) {
+//         this.balance += summ
+//         this.operations.push({
+//             reason,
+//             summ
+//         })
+//         console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
+//         return true
+//     },
+//     decreasedBalance: function (reason, summ) {
+//         if (this.balance <= summ) {
+//             console.log(`Недостаточно денег на балансе: ${this.balance}`)
+//             return false
+//         } else {
+//             this.balance -= summ
+//             this.operations.push({
+//                 reason,
+//                 summ: -summ
+//             })
+//             console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
+//             return true
+//         }
+
+//     },
+//     operationCounter: function () {
+//         return `Число операций: ${this.operations.length}`
+//     }
+
+// }
+// wallet.increasedBalance('Заработок', 500)
+
+// wallet.decreasedBalance('Налог', 1000)
+
+
+// console.log(wallet.operationCounter())
+// console.log(wallet.operations)
+
+
+
+const balance = 7;
+
 const wallet = {
-    balance: 600,
+    balance,        // Можем просто писать свойство, если известно что переменная с таким названием существует 
     operations: [],
-    increasedBalance: function (reason, summ) {
-        this.balance += summ
-        this.operations.push({
-            reason: reason,
-            summ: +summ
-        })
-        console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
-        return true
-    },
-    decreasedBalance: function (reason, summ) {
-        if (this.balance <= summ) {
-            console.log(`Недостаточно денег на балансе: ${this.balance}`)
-            return false
-        } else {
-            this.balance -= summ
-            this.operations.push({
-                reason: reason,
-                summ: -summ
-            })
-            console.log(`УСПЕХ! Текущий баланс: ${this.balance}`)
-            return true
-        }
-
-    },
-    operationCounter: function () {
-        return `Число операций: ${this.operations.length}`
-    }
-
 }
-wallet.increasedBalance('Заработок', 500)
-
-wallet.decreasedBalance('Налог', 1000)
-
-
-console.log(wallet.operationCounter())
-console.log(wallet.operations)
-
-
-
+console.log(wallet)
 
 
 
